@@ -1,0 +1,29 @@
+apartment manager
+------------------
+Property
+----Apartments
+--------Tenants
+
+
+======================
+
+Schemas
+------
+User
+----name
+----email
+----isManager: Boolean
+
+Property
+----Manager: User
+----Apartments
+----Address
+----Name
+
+Apartment
+----Rooms
+----Number
+----Bathrooms
+----Occupied: Boolean
+----Price
+----Sqrft
