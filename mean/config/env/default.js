@@ -2,7 +2,7 @@
 
 module.exports = {
   app: {
-    title: 'apartmentmanager',
+    title: 'articlemanager',
     description: 'Full-Stack Javascript with MongoDB',
     keywords: 'MongoDB, Express, AngularJS, Node.js',
     googleAnalyticsTrackingID: process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'GOOGLE_ANALYTICS_TRACKING_ID'

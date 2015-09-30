@@ -15,10 +15,34 @@ var ArticleSchema = new Schema({
     default: Date.now
   },
   title: {
-    type: String,
+    type: Number,
     default: '',
-    trim: true,
-    required: 'Title cannot be blank'
+    trim: true
+    // required: 'Title cannot be blank'
+  },
+  bedroom: {
+    type: Number,
+    default: '',
+    trim: true
+    // required: 'Bedroom cannot be blank'
+  },
+  bathroom: {
+    type: Number,
+    default: '',
+    trim: true
+    // required: 'Bathroom cannot be blank'
+  },
+  footage: {
+    type: Number,
+    default: '',
+    trim: true
+    // required: 'Footage cannot be blank'
+  },
+  rent: {
+    type: Number,
+    default: '',
+    trim: true
+    // required: 'Rent cannot be blank'
   },
   content: {
     type: String,

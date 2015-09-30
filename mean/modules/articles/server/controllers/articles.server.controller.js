@@ -40,6 +40,11 @@ exports.update = function (req, res) {
   var article = req.article;
 
   article.title = req.body.title;
+  article.bedroom = req.body.bedroom;
+  article.bathroom = req.body.bathroom;
+  article.footage = req.body.footage;
+  article.rent = req.body.rent;
+
   article.content = req.body.content;
 
   article.save(function (err) {
