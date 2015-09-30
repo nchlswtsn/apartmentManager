@@ -10,7 +10,40 @@
         by
         <span ng-bind="article.user.displayName"></span>
       </small>
-      <h4 class="list-group-item-heading" ng-bind="article.title"></h4>
+        <table>
+          <tbody>
+            <tr>
+              <td><h4>Apartment Number: </h4></td>
+              <td><h4 ng-bind="article.title"></h4></td>
+            </tr>
+            <tr>
+              <td><h4>Bedrooms: </h4></td>
+              <td><h4 ng-bind="article.bedroom"></h4></td>
+            </tr>
+            <tr>
+              <td><h4>Bathrooms: </h4></td>
+              <td><h4 ng-bind="article.bathroom"></h4></td>
+            </tr>
+            <tr>
+              <td><h4>Square Footage: </h4></td>
+              <td><h4 ng-bind="article.footage"></h4></td>
+            </tr>
+            <tr>
+              <td><h4>Rent: $</h4></td>
+              <td><h4 ng-bind="article.rent"></h4></td>
+            </tr>
+          </tbody>
+        </table>
+
+
+
+
+
+
+
+      <p class="list-group-item-text" ng-bind="article.bathroom"></p>
+      <p class="list-group-item-text" ng-bind="article.footage"></p>
+      <p class="list-group-item-text" ng-bind="article.rent"></p>
       <p class="list-group-item-text" ng-bind="article.content"></p>
     </a>
   </div>

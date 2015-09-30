@@ -15,6 +15,19 @@ exports.create = function (req, res) {
   var article = new Article(req.body);
   article.user = req.user;
 
+  article.title = req.body.title;
+  console.log(req.body.title);
+  article.bedroom = req.body.bedroom;
+  console.log(req.body.bedroom);
+  article.bathroom = req.body.bathroom;
+  console.log(req.body.bathroom);
+  article.footage = req.body.footage;
+  console.log(req.body.footage);
+  article.rent = req.body.rent;
+  console.log(req.body.rent);
+  article.content = req.body.content;
+  console.log(req.body.content);
+
   article.save(function (err) {
     if (err) {
       return res.status(400).send({
@@ -40,12 +53,18 @@ exports.update = function (req, res) {
   var article = req.article;
 
   article.title = req.body.title;
+  console.log(req.body.title);
   article.bedroom = req.body.bedroom;
+  console.log(req.body.bedroom);
   article.bathroom = req.body.bathroom;
+  console.log(req.body.bathroom);
   article.footage = req.body.footage;
+  console.log(req.body.footage);
   article.rent = req.body.rent;
-
+  console.log(req.body.rent);
   article.content = req.body.content;
+  console.log(req.body.content);
+
 
   article.save(function (err) {
     if (err) {
