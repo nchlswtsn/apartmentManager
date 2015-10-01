@@ -1,38 +1,41 @@
 'use strict';
 
-angular.module('users').controller('SocialAccountsController', ['$scope', '$http', 'Authentication',
-  function ($scope, $http, Authentication) {
+angular.module('articles').controller('SocialAccountsController',   
+  ['$scope', '$stateParams', '$location', 'Authentication', 'Users', "Articles",
+  function ($scope, $stateParams, $location, Authentication, Users, Articles) {
     $scope.user = Authentication.user;
-
-    // Check if there are additional accounts
-    $scope.hasConnectedAdditionalSocialAccounts = function (provider) {
-      for (var i in $scope.user.additionalProvidersData) {
-        return true;
+    $scope.find = function () {
+      $scope.articles = Articles.query();
+    };
+    $scope.apply = function (isValid) {
+      $scope.error = null;
+      var obj = {
+        apartmentNumber: this.title, details: this.content
       }
 
-      return false;
-    };
+      $scope.user.application = obj;
+      if (!isValid) {
+        $scope.$broadcast('show-errors-check-validity', 'articleForm');
 
-    // Check if provider is already in use with current user
-    $scope.isConnectedSocialAccount = function (provider) {
-      return $scope.user.provider === provider || ($scope.user.additionalProvidersData && $scope.user.additionalProvidersData[provider]);
-    };
+        return false;
+      }
 
-    // Remove a user social account
-    $scope.removeUserSocialAccount = function (provider) {
-      $scope.success = $scope.error = null;
+      var user = new Users($scope.user);
 
-      $http.delete('/api/users/accounts', {
-        params: {
-          provider: provider
-        }
-      }).success(function (response) {
-        // If successful show success message and clear form
-        $scope.success = true;
-        $scope.user = Authentication.user = response;
-      }).error(function (response) {
-        $scope.error = response.message;
+      // Create new Article object
+
+      // Redirect after save
+      user.$update(function (response) {
+        // $location.path('articles/' + response._id);
+
+        // Clear form fields
+        $scope.title = '';
+        $scope.content = '';
+      }, function (errorResponse) {
+        $scope.error = errorResponse.data.message;
       });
     };
-  }
+  }  
 ]);
+
+

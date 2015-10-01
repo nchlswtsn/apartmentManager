@@ -14,7 +14,7 @@ var path = require('path'),
 exports.create = function (req, res) {
   var article = new Article(req.body);
   article.user = req.user;
-
+  console.log('thing')
   article.title = req.body.title;
   console.log(req.body.title);
   article.bedroom = req.body.bedroom;
@@ -51,7 +51,7 @@ exports.read = function (req, res) {
  */
 exports.update = function (req, res) {
   var article = req.article;
-
+  console.log('update')
   article.title = req.body.title;
   console.log(req.body.title);
   article.bedroom = req.body.bedroom;

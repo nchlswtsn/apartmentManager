@@ -97,6 +97,9 @@ var UserSchema = new Schema({
   },
   resetPasswordExpires: {
     type: Date
+  },
+  application: {
+    type: Object
   }
 });
 

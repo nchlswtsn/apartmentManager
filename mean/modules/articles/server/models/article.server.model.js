@@ -52,6 +52,10 @@ var ArticleSchema = new Schema({
   user: {
     type: Schema.ObjectId,
     ref: 'User'
+  },
+  tenant: {
+    type: Schema.ObjectId,
+    ref: 'User'
   }
 });
 
