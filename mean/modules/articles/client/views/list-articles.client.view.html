@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="modules/articles/client/views/css/style.css">
+
 <section ng-controller="ArticlesController" ng-init="find()">
   <div class="page-header">
     <h1>Apartment Listings</h1>
@@ -15,16 +17,14 @@
             <tr>
               <td><h4>Apartment Number: </h4></td>
               <td><h4>&nbsp;{{article.title}}</h4></td>
-            </tr>
-            <tr>
+
               <td><h4>Number of Bedrooms: </h4></td>
               <td><h4>&nbsp;{{article.bedroom}}</h4></td>
             </tr>
             <tr>
               <td><h4>Number of Bathrooms: </h4></td>
               <td><h4>&nbsp;{{article.bathroom}}</h4></td>
-            </tr>
-            <tr>
+
               <td><h4>Total Square Footage: </h4></td>
               <td><h4>&nbsp;{{article.footage}}</h4></td>
             </tr>
