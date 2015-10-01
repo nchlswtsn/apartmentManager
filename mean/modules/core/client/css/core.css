@@ -1,3 +1,7 @@
+body {
+  background-color: black;
+  color: silver;
+}
 .content {
   margin-top: 50px;
 }
