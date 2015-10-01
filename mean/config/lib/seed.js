@@ -119,6 +119,17 @@ module.exports.start = function start() {
       roles: ['user', 'admin']
     };
 
+    var seedJesus = {
+      username: 'admin',
+      password: 'Admin_Password1!',
+      provider: 'local',
+      email: 'admin@localhost.com',
+      firstName: 'Admin',
+      lastName: 'Local',
+      displayName: 'Admin Local',
+      roles: ['user', 'admin', 'jesus']
+    };
+
     var user = null;
     var adminAccount = new User(seedAdmin);
     var userAccount = new User(seedUser);

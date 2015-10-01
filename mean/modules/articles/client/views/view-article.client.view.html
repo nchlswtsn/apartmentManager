@@ -1,15 +1,17 @@
 <section ng-controller="ArticlesController" ng-init="findOne()">
   <div class="page-header">
-    <h1 ng-bind="article.title"></h1>
+  <h1>Apartment Number: {{article.title}}</h1>
   </div>
-  <div class="pull-right" ng-show="authentication.user._id == article.user._id">
-    <a class="btn btn-primary" ui-sref="articles.edit({articleId: article._id})">
-      <i class="glyphicon glyphicon-edit"></i>
-    </a>
-    <a class="btn btn-primary" ng-click="remove();">
-      <i class="glyphicon glyphicon-trash"></i>
-    </a>
-  </div>
+  <p><b>Number of Bedrooms:</b> {{article.bedroom}}</p>
+  <p><b>Number of Bathrooms:</b> {{article.bathroom}}</p>
+  <p><b>Total Square Footage:</b> {{article.footage}}</p>
+  <p><b>Monthly Rent:</b> ${{article.rent}}</p>
+  <p><b>Additional Details:</b></p>
+  <p>{{article.content}}</p>
+
+  <br>
+  <br>
+
   <small>
     <em class="text-muted">
       Posted on
@@ -18,12 +20,15 @@
       <span ng-bind="article.user.displayName"></span>
     </em>
   </small>
-  <p class="lead" ng-bind="article.bedroom"></p>
-  <p class="lead" ng-bind="article.bathroom"></p>
-  <p class="lead" ng-bind="article.footage"></p>
-  <p class="lead" ng-bind="article.rent"></p>
 
 
+  <div class="pull-right" ng-show="authentication.user._id == article.user._id">
+    <a class="btn btn-primary" ui-sref="articles.edit({articleId: article._id})">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="remove();">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
 
-  <p class="lead" ng-bind="article.content"></p>
 </section>
