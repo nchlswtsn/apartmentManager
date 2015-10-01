@@ -14,7 +14,7 @@
       </div>
     </div>
   </div>
-
+<form name="articleForm" class="form-horizontal" novalidate>
   <div class="row">
     <div class="col-md-8">
       <div class="row">
@@ -46,6 +46,15 @@
         <div class="col-md-3"><strong>Roles</strong></div>
         <div class="col-md-6" ng-bind="user.roles"></div>
       </div>
+      <hr/>
+      <div class="row">
+        <div class="col-md-3"><strong>Applied for Apt. ID:</strong></div>
+        <div class="col-md-6" ng-bind="user.application.apartmentNumber"></div>
+      </div>
     </div>
   </div>
+  <hr/>
+  <button ng-click="accept(user, articleForm.$valid)" class='btn btn-default'>Accept</button>
+  <!-- <input type="submit" class="btn btn-default"> -->
+</form>
 </section>

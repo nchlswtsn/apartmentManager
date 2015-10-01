@@ -1,50 +1,39 @@
-<section class="row" ng-controller="SocialAccountsController">
-  <h3 class="col-md-12 text-center" ng-show="hasConnectedAdditionalSocialAccounts()">Connected social accounts:</h3>
-  <div class="col-md-12 text-center">
-    <div ng-repeat="(providerName, providerData) in user.additionalProvidersData" class="social-account-container">
-      <img ng-src="/modules/users/client/img/buttons/{{providerName}}.png">
-      <a class="btn btn-danger btn-remove-account" ng-click="removeUserSocialAccount(providerName)">
-        <i class="glyphicon glyphicon-trash"></i>
-      </a>
-    </div>
+<section class="row" ng-controller="SocialAccountsController" ng-init="find()">
+<div class="page-header">
+    <h1>New Apartment</h1>
   </div>
-  <h3 class="col-md-12 text-center" ng-show="hasConnectedAdditionalSocialAccounts()">Unconnected social accounts:</h3>
-  <div class="col-md-12 text-center">
-    <div class="social-account-container" ng-hide="isConnectedSocialAccount('facebook')">
-      <img ng-src="/modules/users/client/img/buttons/facebook.png">
-      <a class="btn btn-success btn-remove-account" href="/api/auth/facebook" target="_self">
-        <i class="glyphicon glyphicon-plus"></i>
-      </a>
-    </div>
-    <div class="social-account-container" ng-hide="isConnectedSocialAccount('twitter')">
-      <img ng-src="/modules/users/client/img/buttons/twitter.png">
-      <a class="btn btn-success btn-remove-account" href="/api/auth/twitter" target="_self">
-        <i class="glyphicon glyphicon-plus"></i>
-      </a>
-    </div>
-    <div class="social-account-container" ng-hide="isConnectedSocialAccount('google')">
-      <img ng-src="/modules/users/client/img/buttons/google.png">
-      <a class="btn btn-success btn-remove-account" href="/api/auth/google" target="_self">
-        <i class="glyphicon glyphicon-plus"></i>
-      </a>
-    </div>
-    <div class="social-account-container" ng-hide="isConnectedSocialAccount('linkedin')">
-      <img ng-src="/modules/users/client/img/buttons/linkedin.png">
-      <a class="btn btn-success btn-remove-account" href="/api/auth/linkedin" target="_self">
-        <i class="glyphicon glyphicon-plus"></i>
-      </a>
-    </div>
-    <div class="social-account-container" ng-hide="isConnectedSocialAccount('github')">
-      <img ng-src="/modules/users/client/img/buttons/github.png">
-      <a class="btn btn-success btn-remove-account" href="/api/auth/github" target="_self">
-        <i class="glyphicon glyphicon-plus"></i>
-      </a>
-    </div>
-    <div class="social-account-container" ng-hide="isConnectedSocialAccount('paypal')">
-      <img ng-src="/modules/users/client/img/buttons/paypal.png">
-      <a class="btn btn-success btn-remove-account" href="/api/auth/paypal" target="_self">
-        <i class="glyphicon glyphicon-plus"></i>
-      </a>
-    </div>
+  <div class="col-md-12">
+    <form name="articleForm" class="form-horizontal" ng-submit="apply(articleForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label for="title">Apartment Number</label>
+          <!-- <input name="title" type="title" ng-model="title" id="title" class="form-control" placeholder="# goes here..." required> -->
+          <select name='title' id='title' ng-model='title'>
+            <option value='{{article._id}}' ng-repeat="article in articles">Apt. #: {{article.title}}</option>
+        </select>
+
+          <div ng-messages="articleForm.title.$error" role="alert">
+            <!-- <p class="help-block error-text" ng-message="required">Required Field.</p> -->
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="content">Why I would be a good tenant:</label>
+          <textarea name="content" ng-model="content" id="content" class="form-control" cols="30" rows="10" placeholder="Type additional info here"></textarea>
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-default">
+        </div>
+        <div ng-show="error" class="text-danger">
+          <strong ng-bind="error"></strong>
+        </div>
+      </fieldset>
+    </form>
   </div>
+
+
 </section>
+
+
+
+
