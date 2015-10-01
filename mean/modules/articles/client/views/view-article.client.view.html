@@ -1,14 +1,20 @@
+<!-- <link rel="stylesheet" href="./css/style.css"> -->
 <section ng-controller="ArticlesController" ng-init="findOne()">
   <div class="page-header">
-  <h1>Apartment Number: {{article.title}}</h1>
+    <h1>Apartment Number: {{article.title}}</h1>
   </div>
-  <p><b>Number of Bedrooms:</b> {{article.bedroom}}</p>
-  <p><b>Number of Bathrooms:</b> {{article.bathroom}}</p>
-  <p><b>Total Square Footage:</b> {{article.footage}}</p>
-  <p><b>Monthly Rent:</b> ${{article.rent}}</p>
-  <p><b>Additional Details:</b></p>
-  <p>{{article.content}}</p>
+  <div class="row">
+    <div class="col-md-8">
+      <img id="floorplan" class="pull-right" src="http://iravalkowitz.com/wp-content/uploads/2015/09/1-bedroom-apartments-for-great-paragon-apartment-layout-plan-with-double-entry-and-single.jpg" alt="Floor Plan" style="width:304px;height:228px;">
 
+      <p><b>Number of Bedrooms:</b> {{article.bedroom}}</p>
+      <p><b>Number of Bathrooms:</b> {{article.bathroom}}</p>
+      <p><b>Total Square Footage:</b> {{article.footage}}</p>
+      <p><b>Monthly Rent:</b> ${{article.rent}}</p>
+      <p><b>Additional Details:</b></p>
+      <p>{{article.content}}</p>
+    </div>
+  </div>
   <br>
   <br>
 
