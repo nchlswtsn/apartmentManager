@@ -1,7 +1,8 @@
 'use strict';
 
-angular.module('users.admin').controller('UserController', ['$scope', '$http', '$state', 'Authentication', 'userResolve', 'Users', 'Articles',
-  function ($scope,  $http, $state, Authentication, userResolve, Users, Articles) {
+angular.module('users.admin').controller('UserController', 
+  ['$scope', '$http', '$state', '$location', 'Authentication', 'userResolve', 'Users', 'Articles',
+  function ($scope,  $http, $state, $location, Authentication, userResolve, Users, Articles) {
     $scope.authentication = Authentication;
     console.log($scope.authentication)
     $scope.user = userResolve;
@@ -43,8 +44,8 @@ angular.module('users.admin').controller('UserController', ['$scope', '$http', '
         var article = $scope.article
       //   // var article = new Articles(tenant);
       //   console.log(article)
-        article.$save(function (article, response) {
-          console.log(response)
+        article.$update(function () {
+          $location.path('articles/' + user.application.apartmentNumber)
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
       });
